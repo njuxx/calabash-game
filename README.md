@@ -56,14 +56,14 @@
 
 ```java
 synchronized (myMap) {
-        Creature creatureOnTargetBlock = myMap.getBlockCreature(nextX, nextY);
+    Creature creatureOnTargetBlock = myMap.getBlockCreature(nextX, nextY);
     if (creatureOnTargetBlock == null)
-            moveCreatureOnMap(nextX, nextY);
+        moveCreatureOnMap(nextX, nextY);
 }
 
 public void moveCreatureOnMap(int x, int y){
-        try{
-            myController.moveCreature(this, x, y);
+    try{
+        myController.moveCreature(this, x, y);
         myMap.moveCreature(this, x, y);
         this.x = x;
         this.y = y;
@@ -133,7 +133,7 @@ freader.readLine()
 
 ```java
 class CalabashBros extends Creature{
-         public void reduceNumber(){ myController.reduceAGoodGuy(); }
+    public void reduceNumber(){ myController.reduceAGoodGuy(); }
 }
 ```
 
@@ -158,8 +158,8 @@ pane.getChildren().add(textBox);
 
 ```java
 public class Map {
-        private static final Map instance = new Map(20);
-        public static Map getInstance(){ return instance; }
+    private static final Map instance = new Map(20);
+    public static Map getInstance(){ return instance; }
 }
 ```
 
@@ -173,7 +173,7 @@ public class Map {
 
 ```java
 try {
-        fwriter = new FileWriter(file);
+    fwriter = new FileWriter(file);
     ...
     fwriter.write(s);
     fwriter.flush();
@@ -196,10 +196,10 @@ try {
 
 ```java
 public class Controller {
-      ...
-      private ArrayList<Creature> goodGuys = new ArrayList<>();
-      private ArrayList<Creature> badGuys = new ArrayList<>();
-      ...
+    ...
+    private ArrayList<Creature> goodGuys = new ArrayList<>();
+    private ArrayList<Creature> badGuys = new ArrayList<>();
+    ...
 }
 ```
 
@@ -242,10 +242,10 @@ public void keyBoardListener(){ pane.setOnKeyReleased( ... ); }
 
 ```java
 private void showHistoryFileSaveDialog(){
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("打开历史游戏记录");
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Calabash Game Files", "*.cgf"));
-        File file = fileChooser.showSaveDialog(primaryStage);
+    FileChooser fileChooser = new FileChooser();
+    fileChooser.setTitle("打开历史游戏记录");
+    fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Calabash Game Files", "*.cgf"));
+    File file = fileChooser.showSaveDialog(primaryStage);
     if(file!=null)
         historyManager.saveHistoryFile(file, getAllGuys());
 }
@@ -257,14 +257,14 @@ private void showHistoryFileSaveDialog(){
 
 ```java
 pane.setOnKeyReleased((KeyEvent ke) -> {
-        if(!inGameFlag) {
-                char c = ke.getText().charAt(0);
-                switch (c) {
-                    case ' ': startGame(); break;
-                        case 'l': showHistoryFileOpenDialog(); break;
-                case 's': showHistoryFileSaveDialog(); break;
-                default: System.out.println(c);
-            }
+    if(!inGameFlag) {
+        char c = ke.getText().charAt(0);
+        switch (c) {
+            case ' ': startGame(); break;
+            case 'l': showHistoryFileOpenDialog(); break;
+            case 's': showHistoryFileSaveDialog(); break;
+            default: System.out.println(c);
+        }
     }
 });
 ```
@@ -285,7 +285,7 @@ public class ChangSheTest {
         ArrayList<Creature> creaturesForTest = controllerForTest.getBadGuys();
         formationForTest.ChangShe(creaturesForTest, 4, 9, "Right");
         int[][] rightChangsheAnswers = new int[][]{
-                {4,9},{5,9},{6,9},{7,9},{8,9},{9,9},{10,9},{11,9}
+            {4,9},{5,9},{6,9},{7,9},{8,9},{9,9},{10,9},{11,9}
         };
         for(int i=0;i<8;i++) {
             assertEquals(rightChangsheAnswers[i][0], creaturesForTest.get(i).getX());
