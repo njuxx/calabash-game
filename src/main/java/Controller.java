@@ -121,7 +121,7 @@ public class Controller {
         TextField textBox = new TextField();
         textBox.setOpacity(0);
         pane.getChildren().add(textBox);
-        Image backGroundImage = new Image("file:///../src/pictures/background.png");
+        Image backGroundImage = new Image("pictures/background.png");
         ImageView backGroundImageView = new ImageView();
         backGroundImageView.setImage(backGroundImage);
         backGroundImageView.setFitWidth(800);
